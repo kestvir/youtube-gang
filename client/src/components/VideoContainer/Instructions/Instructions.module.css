@@ -27,7 +27,7 @@
   left: 50%;
   content: "";
   z-index: 3;
-  border-left: 1px solid rgba(44, 45, 46, 0.267);
+  border-left: 1px solid rgba(241, 237, 237, 0.267);
   width: 0;
   height: calc(100% - 1rem);
 }

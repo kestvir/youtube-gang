@@ -16,7 +16,9 @@ const UserList = () => {
 
   return (
     <Flex flexDirection="column" justifyContent="center" alignItems="center">
-      <Text fontSize="xl">Connected users:</Text>
+      <Text color="lighterGrey.400" fontSize="xl">
+        Connected users:
+      </Text>
       {users.map((userObj) => {
         return (
           <Flex
@@ -27,7 +29,7 @@ const UserList = () => {
             alignItems="center"
           >
             <Avatar size="80" round={true} name={userObj.name} />
-            <Text>{userObj.name}</Text>
+            <Text color="lightestGrey">{userObj.name}</Text>
           </Flex>
         );
       })}

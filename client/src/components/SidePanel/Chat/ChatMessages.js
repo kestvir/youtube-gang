@@ -19,7 +19,7 @@ const ChatMessages = ({ messages }) => {
                 key={index}
                 textAlign="center"
                 fontSize="sm"
-                color="gray.600"
+                color="lighterGrey.400"
               >
                 {messageObj.text}
               </Text>

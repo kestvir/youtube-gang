@@ -29,14 +29,16 @@ const VolumeAlert = ({ setMuted }) => {
       autoFocus={false}
     >
       <ModalOverlay />
-      <ModalContent>
-        <ModalHeader>Enable volume?</ModalHeader>
-        <ModalBody>Do you want to enable volume automatically?</ModalBody>
+      <ModalContent bg="darkGrey">
+        <ModalHeader color="white">Enable volume?</ModalHeader>
+        <ModalBody color="lightestGrey">
+          Do you want to enable volume automatically?
+        </ModalBody>
         <ModalFooter>
-          <Button colorScheme="blue" mr={3} onClick={onClose}>
+          <Button colorScheme="lighterGrey" mr={3} onClick={onClose}>
             No
           </Button>
-          <Button onClick={unmute} colorScheme="red">
+          <Button onClick={unmute} colorScheme="brand">
             Yes
           </Button>
         </ModalFooter>

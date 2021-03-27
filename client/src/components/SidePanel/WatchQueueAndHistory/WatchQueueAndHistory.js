@@ -1,13 +1,18 @@
 import React from "react";
 import { Tab, Tabs, TabList, TabPanels, TabPanel } from "@chakra-ui/react";
 import QueueOrHistory from "./QueueOrHistory";
+import { selectedTabStyles } from "../../shared/constants";
 
 const WatchQueueAndHistoryTabs = () => {
   return (
     <Tabs isFitted variant="unstyled">
       <TabList>
-        <Tab _selected={{ color: "white", bg: "blue.500" }}>💃</Tab>
-        <Tab _selected={{ color: "white", bg: "green.400" }}>🏜 </Tab>
+        <Tab color="white" _selected={selectedTabStyles}>
+          Queue
+        </Tab>
+        <Tab color="white" _selected={selectedTabStyles}>
+          History
+        </Tab>
       </TabList>
       <TabPanels>
         <TabPanel>

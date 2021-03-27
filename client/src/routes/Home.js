@@ -1,6 +1,7 @@
 import React from "react";
 import { generate as generateRandomUsername } from "canihazusername";
-import { Flex, Heading, Button } from "@chakra-ui/react";
+import { Flex, Heading, Button, Text } from "@chakra-ui/react";
+import { MdBrandingWatermark } from "react-icons/md";
 
 function Home({ history }) {
   function createAndJoinRoom() {
@@ -10,17 +11,22 @@ function Home({ history }) {
 
   return (
     <Flex
-      bg="gray.900"
+      bg="almostBlack"
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
       h="100vh"
     >
-      <Heading as="h1" size="2xl" pb="2">
-        Youtube 2gether!
-      </Heading>
-      <Button colorScheme="blue" size="lg" onClick={createAndJoinRoom}>
-        Create Room
+      <Flex>
+        <Heading color="white" size="4xl">
+          Youtube
+        </Heading>
+        <Heading color="brand.400" size="4xl">
+          Gang
+        </Heading>
+      </Flex>
+      <Button mt={3} colorScheme="brand" size="lg" onClick={createAndJoinRoom}>
+        Create a room
       </Button>
     </Flex>
   );

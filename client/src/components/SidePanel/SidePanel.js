@@ -4,15 +4,16 @@ import Chat from "./Chat/Chat";
 import UserList from "./UserList";
 import Options from "../Options/Options";
 import WatchQueueAndHistory from "./WatchQueueAndHistory/WatchQueueAndHistory";
+import { selectedTabStyles } from "../shared/constants";
 
 const SidePanel = ({ name, setName }) => {
   return (
-    <Tabs isFitted variant="unstyled">
+    <Tabs isFitted variant="unstyled" bg="darkGrey">
       <TabList h="6vh">
-        <Tab _selected={{ color: "white", bg: "blue.500" }}>💬</Tab>
-        <Tab _selected={{ color: "white", bg: "green.400" }}>👤</Tab>
-        <Tab _selected={{ color: "white", bg: "green.400" }}>👀</Tab>
-        <Tab _selected={{ color: "white", bg: "green.400" }}>⚙</Tab>
+        <Tab _selected={selectedTabStyles}>💬</Tab>
+        <Tab _selected={selectedTabStyles}>👤</Tab>
+        <Tab _selected={selectedTabStyles}>👀</Tab>
+        <Tab _selected={selectedTabStyles}>⚙</Tab>
       </TabList>
       <TabPanels h="94vh">
         <TabPanel h="100%">
@@ -21,7 +22,7 @@ const SidePanel = ({ name, setName }) => {
         <TabPanel>
           <UserList />
         </TabPanel>
-        <TabPanel px={0}>
+        <TabPanel p={0}>
           <WatchQueueAndHistory />
         </TabPanel>
         <TabPanel>

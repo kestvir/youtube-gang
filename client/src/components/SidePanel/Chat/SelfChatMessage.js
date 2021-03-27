@@ -2,13 +2,13 @@ import React from "react";
 import { Box, Flex, Text } from "@chakra-ui/react";
 import Avatar from "react-avatar";
 
-const SelfChatMessage = ({ index, messageObj }) => {
+const SelfChatMessage = ({ messageObj }) => {
   return (
-    <Flex key={index} justifyContent="flex-end" alignItems="center" my={4}>
-      <Box borderRadius="full" background="yellow" px={2} py={1.5} maxW="200px">
-        {messageObj.text}
+    <Flex justifyContent="flex-end" alignItems="center" my={4}>
+      <Box background="transparent" maxW="200px">
+        <Text color="white">{messageObj.text}</Text>
       </Box>
-      <Text fontSize="sm" mx={2}>
+      <Text fontWeight="600" fontSize="sm" mx={2.5} color="lighterGrey.200">
         {messageObj.name}
       </Text>
       <Avatar size="40" round={true} name={messageObj.name} />

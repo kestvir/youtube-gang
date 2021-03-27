@@ -8,6 +8,8 @@ const validYoutubeLink = /^(?:https?:)?(?:\/\/)?(?:youtu\.be\/|(?:www\.|m\.)?you
 const SearchOrLoadVideosInput = ({ setFoundVideos }) => {
   const { state } = useContext(SocketContext);
   const { socket } = state;
+
+  //   const [loadingSearch, setLoading] = useState(false);
   const [videoSearchInputOrURL, setVideoSearchInputOrURL] = useState("");
 
   const searchVideos = async (searchInput) => {
@@ -44,12 +46,20 @@ const SearchOrLoadVideosInput = ({ setFoundVideos }) => {
         onChange={(e) => setVideoSearchInputOrURL(e.target.value)}
         pr="4.5rem"
         type="text"
-        placeholder="Load video"
+        placeholder="Load or search for a video"
+        _placeholder={{ color: "lighterGrey.400" }}
+        _focus={{ outline: "0" }}
+        _autofill={{ bg: "transparent" }}
+        borderColor="lighterGrey.500"
+        color="white"
+        variant="outline"
       />
       <InputRightElement width="4.5rem">
         <Button
-          h="1.75rem"
-          size="sm"
+          h="100%"
+          colorScheme="brand"
+          borderRightRadius="0.375rem"
+          borderRadius={0}
           onClick={() => loadOrSearchVideo(videoSearchInputOrURL)}
         >
           Submit

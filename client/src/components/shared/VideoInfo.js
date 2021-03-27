@@ -47,9 +47,9 @@ const VideoInfo = ({ video, isParentComponentOptions, isQueue }) => {
         fit="cover"
         src={video.thumbnail}
       />
-      <Text>{shortenStrIfTooLong(video.title)}</Text>
+      <Text color="white">{shortenStrIfTooLong(video.title)}</Text>
       <Flex mt={1} alignItems="center" justifyContent="space-between">
-        <Text color="gray.500">{shortenStrIfTooLong(video.channel)}</Text>
+        <Text color="lightestGrey">{shortenStrIfTooLong(video.channel)}</Text>
         <Icon
           onClick={
             isParentComponentOptions
@@ -58,6 +58,7 @@ const VideoInfo = ({ video, isParentComponentOptions, isQueue }) => {
           }
           mr={2.5}
           cursor="pointer"
+          color="lightestGrey"
           as={isParentComponentOptions ? MdDelete : ImPlus}
         />
       </Flex>

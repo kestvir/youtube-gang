@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { SocketContext } from "../store/contexts/SocketContext";
 import { generate as generateRandomUsername } from "canihazusername";
-import { Flex, Box } from "@chakra-ui/react";
+import { Box, Flex, Progress } from "@chakra-ui/react";
+import { Skeleton } from "@chakra-ui/react";
 import SidePanel from "../components/SidePanel/SidePanel";
 import VideoContainer from "../components/VideoContainer/VideoContainer";
 
@@ -26,11 +27,16 @@ const Room = ({ match }) => {
     }
   }, [socket]);
 
-  if (!socket) return <h1>LOADING...</h1>;
+  if (!socket)
+    return (
+      <Box w="100%" h="100vh" bg="almostBlack">
+        <Progress colorScheme="brand" isIndeterminate />;
+      </Box>
+    );
 
   return (
     <Flex h="100vh" w="100vw">
-      <Box overflow="auto" w="75vw" bg="tomato">
+      <Box overflow="auto" w="75vw" bg="almostBlack">
         <VideoContainer />
       </Box>
       <Box w="25vw">

@@ -24,10 +24,20 @@ const ChangeUsername = ({ name, setName }) => {
   };
   return (
     <Flex my={3} flexDirection="column">
-      <Text textAlign="center">Hello, my name is:</Text>
+      <Text color="lighterGrey.400" textAlign="center">
+        Hello, my name is:
+      </Text>
       <form onSubmit={submitNewUsername}>
         <InputGroup w="100%">
-          <Input required type="text" value={name} onChange={changeName} />
+          <Input
+            required
+            _focus={{ outline: "0" }}
+            type="text"
+            value={name}
+            onChange={changeName}
+            borderColor="lighterGrey.500"
+            color="white"
+          />
           <InputRightElement
             children={
               <IconButton
@@ -35,7 +45,7 @@ const ChangeUsername = ({ name, setName }) => {
                 onClick={submitNewUsername}
                 borderRadius="none"
                 className="test"
-                colorScheme="blue"
+                colorScheme="brand"
                 aria-label="Submit new name"
                 icon={<FiCheck />}
               />

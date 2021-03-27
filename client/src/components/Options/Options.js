@@ -10,7 +10,11 @@ const Options = ({ name, setName }) => {
     <Flex flexDirection="column">
       <ChangeUsername name={name} setName={setName} />
       <CopyRoomLink />
-      <Button mt={3} colorScheme="red" onClick={() => history.push("/")}>
+      <Button
+        mt={3}
+        colorScheme="lighterGrey"
+        onClick={() => history.push("/")}
+      >
         Leave room
       </Button>
     </Flex>

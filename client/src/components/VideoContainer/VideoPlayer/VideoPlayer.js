@@ -166,7 +166,7 @@ const VideoPlayer = () => {
       {displayVideoPlayer && <VolumeAlert setMuted={setMuted} />}
       <div ref={playerWrapperRef} className="player-wrapper">
         <ReactPlayer
-          style={{ display: !displayVideoPlayer && "none" }}
+          //   style={{ display: !displayVideoPlayer && "none" }}
           ref={playerRef}
           url={vidURL}
           className="react-player"

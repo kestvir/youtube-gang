@@ -12,11 +12,17 @@ import { CgChevronLeft, CgChevronRight } from "react-icons/cg";
 
 const Pagination = ({ pagesQuantity, setCurPage }) => {
   const normalStyles = {
-    bg: "white",
+    bg: "lightestGrey",
+    w: "40px",
+    h: "40px",
+    mx: "5px",
   };
 
   const activeStyles = {
-    bg: "blue.300",
+    colorScheme: "brand",
+    w: "40px",
+    h: "40px",
+    mx: "5px",
   };
 
   const handlePageChange = (page) => {
@@ -24,12 +30,18 @@ const Pagination = ({ pagesQuantity, setCurPage }) => {
   };
 
   return (
-    <Flex>
+    <Flex justifyContent="center">
       <Paginator
         onPageChange={handlePageChange}
         pagesQuantity={pagesQuantity - 1}
       >
-        <Previous bg="white">
+        <Previous
+          color="lighterGrey.500"
+          bg="transparent"
+          fontSize={18}
+          _hover={{ bg: "transparent" }}
+          _active={{ bg: "transparent" }}
+        >
           <CgChevronLeft />
         </Previous>
         <PageGroup>
@@ -42,7 +54,13 @@ const Pagination = ({ pagesQuantity, setCurPage }) => {
             />
           ))}
         </PageGroup>
-        <Next bg="white">
+        <Next
+          color="lighterGrey.500"
+          bg="transparent"
+          fontSize={18}
+          _hover={{ bg: "transparent" }}
+          _active={{ bg: "transparent" }}
+        >
           <CgChevronRight />
         </Next>
       </Paginator>

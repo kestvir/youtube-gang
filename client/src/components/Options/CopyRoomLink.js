@@ -16,9 +16,18 @@ const CopyRoomLink = () => {
 
   return (
     <Flex my={3} flexDirection="column">
-      <Text textAlign="center">Invite your friends!</Text>
+      <Text color="lighterGrey.400" textAlign="center">
+        Invite your friends!
+      </Text>
       <InputGroup w="100%">
-        <Input type="text" value={window.location.href} readOnly />
+        <Input
+          type="text"
+          _focus={{ outline: "0" }}
+          value={window.location.href}
+          readOnly
+          borderColor="lighterGrey.500"
+          color="white"
+        />
         <InputRightElement
           children={
             <CopyToClipboard text={url}>
@@ -26,7 +35,7 @@ const CopyRoomLink = () => {
                 onClick={copyRoomLink}
                 borderRadius="none"
                 className="test"
-                colorScheme="blue"
+                colorScheme="brand"
                 aria-label="Copy room link"
                 icon={<FiCopy />}
               />
