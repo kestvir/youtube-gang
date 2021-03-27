@@ -9,11 +9,12 @@ const SearchOrLoadVideosInput = ({ setFoundVideos }) => {
   const { state } = useContext(SocketContext);
   const { socket } = state;
 
-  //   const [loadingSearch, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [videoSearchInputOrURL, setVideoSearchInputOrURL] = useState("");
 
   const searchVideos = async (searchInput) => {
     if (!searchInput) return;
+    setIsLoading(true);
     try {
       const res = await fetch(getVideosInfoURL(searchInput));
       if (!res.ok) {
@@ -24,6 +25,7 @@ const SearchOrLoadVideosInput = ({ setFoundVideos }) => {
     } catch (err) {
       console.error(err);
     }
+    setIsLoading(false);
   };
 
   const loadOrSearchVideo = (input) => {
@@ -56,6 +58,7 @@ const SearchOrLoadVideosInput = ({ setFoundVideos }) => {
       />
       <InputRightElement width="4.5rem">
         <Button
+          isLoading={isLoading}
           h="100%"
           colorScheme="brand"
           borderRightRadius="0.375rem"

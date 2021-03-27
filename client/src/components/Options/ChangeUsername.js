@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import {
   Flex,
   InputGroup,
@@ -6,18 +6,37 @@ import {
   InputRightElement,
   IconButton,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import { SocketContext } from "../../store/contexts/SocketContext";
 import { FiCheck } from "react-icons/fi";
 
 const ChangeUsername = ({ name, setName }) => {
+  const [currentUsername, setCurrentUsername] = useState("");
   const { state } = useContext(SocketContext);
   const { socket } = state;
+  const toast = useToast();
+  const firstRenderRef = useRef(true);
+
+  useEffect(() => {
+    if (firstRenderRef.current && name.trim().length) {
+      setCurrentUsername(name);
+      firstRenderRef.current = false;
+    }
+  }, [name]);
+
   const submitNewUsername = (e) => {
     e.preventDefault();
+    if (currentUsername === name) return;
     socket.emit("change name", name);
+    toast({
+      description: "Username changed successfully",
+      status: "success",
+      duration: 1500,
+      isClosable: true,
+    });
+    setCurrentUsername(name);
   };
-
   const changeName = (e) => {
     const userInput = e.target.value.trim();
     if (userInput.length) setName(userInput);
@@ -33,7 +52,7 @@ const ChangeUsername = ({ name, setName }) => {
             required
             _focus={{ outline: "0" }}
             type="text"
-            value={name}
+            value={currentUsername}
             onChange={changeName}
             borderColor="lighterGrey.500"
             color="white"

@@ -7,12 +7,22 @@ import {
   InputRightElement,
   IconButton,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import { FiCopy } from "react-icons/fi";
 
 const CopyRoomLink = () => {
-  const copyRoomLink = () => {};
+  const toast = useToast();
   const url = window.location.href;
+
+  const copyRoomLink = () => {
+    toast({
+      description: "Room link copied!",
+      status: "success",
+      duration: 1500,
+      isClosable: true,
+    });
+  };
 
   return (
     <Flex my={3} flexDirection="column">
