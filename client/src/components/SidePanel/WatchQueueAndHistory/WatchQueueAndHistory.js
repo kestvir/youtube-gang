@@ -1,7 +1,7 @@
 import React from "react";
 import { Tab, Tabs, TabList, TabPanels, TabPanel } from "@chakra-ui/react";
 import QueueOrHistory from "./QueueOrHistory";
-import { selectedTabStyles } from "../../shared/constants";
+import { selectedTabStyles } from "../../../shared/constants";
 
 const WatchQueueAndHistoryTabs = () => {
   return (

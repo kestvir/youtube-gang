@@ -2,9 +2,9 @@ import React from "react";
 import { Tab, Tabs, TabList, TabPanels, TabPanel, Box } from "@chakra-ui/react";
 import Chat from "./Chat/Chat";
 import UserList from "./UserList";
-import Options from "../Options/Options";
+import Options from "./Options/Options";
 import WatchQueueAndHistory from "./WatchQueueAndHistory/WatchQueueAndHistory";
-import { selectedTabStyles } from "../shared/constants";
+import { selectedTabStyles } from "../../shared/constants";
 
 const SidePanel = ({ name, setName }) => {
   return (

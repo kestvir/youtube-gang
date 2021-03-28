@@ -8,9 +8,9 @@ import {
   Text,
   useToast,
 } from "@chakra-ui/react";
-import { SocketContext } from "../../store/contexts/SocketContext";
+import { SocketContext } from "../../../store/contexts/SocketContext";
 import { FiCheck } from "react-icons/fi";
-import { successMsg } from "../shared/constants";
+import { successMsg } from "../../../shared/constants";
 
 const ChangeUsername = ({ name, setName }) => {
   const [currentUsername, setCurrentUsername] = useState("");

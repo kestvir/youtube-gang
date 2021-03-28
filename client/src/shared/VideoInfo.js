@@ -1,15 +1,15 @@
 import React, { useContext } from "react";
-import { SocketContext } from "../../store/contexts/SocketContext";
+import { SocketContext } from "../store/contexts/SocketContext";
 import { Flex, Image, Text, Icon, useToast } from "@chakra-ui/react";
 import { ImPlus } from "react-icons/im";
 import { MdDelete } from "react-icons/md";
-import { WatchQueueAndHistoryContext } from "../../store/contexts/WatchQueueAndHistorytContext";
+import { WatchQueueAndHistoryContext } from "../store/contexts/WatchQueueAndHistorytContext";
 import {
   addVideoToQueue,
   deleteVideoFromQueue,
   deleteVideoFromHistory,
-} from "../../store/actions/watchQueueAndHistoryActions";
-import { standardVideoURL, successMsg } from "../shared/constants";
+} from "../store/actions/watchQueueAndHistoryActions";
+import { standardVideoURL, successMsg } from "./constants";
 
 const VideoInfo = ({ video, isParentComponentOptions, isQueue }) => {
   const { state } = useContext(SocketContext);

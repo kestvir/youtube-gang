@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Box, Grid, GridItem } from "@chakra-ui/react";
-import VideoInfo from "../../shared/VideoInfo";
+import VideoInfo from "../../../shared/VideoInfo";
 import Video from "../../../models/Video";
 
 const FoundVideos = ({ foundVideos, curPage, itemLimit }) => {

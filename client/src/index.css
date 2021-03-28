@@ -43,6 +43,7 @@ input:-webkit-autofill {
 
 .player-wrapper {
   position: relative;
+  padding-top: 56.25%;
 }
 
 .react-player {

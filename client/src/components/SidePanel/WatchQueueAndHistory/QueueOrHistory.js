@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { WatchQueueAndHistoryContext } from "../../../store/contexts/WatchQueueAndHistorytContext";
 import { Flex } from "@chakra-ui/react";
-import VideoInfo from "../../shared/VideoInfo";
+import VideoInfo from "../../../shared/VideoInfo";
 
 const QueueOrHistory = ({ isQueue }) => {
   const { state } = useContext(WatchQueueAndHistoryContext);

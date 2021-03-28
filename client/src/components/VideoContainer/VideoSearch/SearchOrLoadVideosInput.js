@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { InputGroup, InputRightElement, Input, Button } from "@chakra-ui/react";
 import { SocketContext } from "../../../store/contexts/SocketContext";
-import { getVideosInfoURL } from "../../shared/constants";
+import { getVideosInfoURL } from "../../../shared/constants";
 
 const validYoutubeLink = /^(?:https?:)?(?:\/\/)?(?:youtu\.be\/|(?:www\.|m\.)?youtube\.com\/(?:watch|v|embed)(?:\.php)?(?:\?.*v=|\/))([a-zA-Z0-9\_-]{7,15})(?:[\?&][a-zA-Z0-9\_-]+=[a-zA-Z0-9\_-]+)*$/;
 
