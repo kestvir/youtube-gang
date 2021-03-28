@@ -2,6 +2,9 @@ import React, { createContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import io from "socket.io-client";
 
+const frontEndUrl = "http://localhost:3000/";
+const backendUrl = "http://localhost:8000/";
+
 export const SocketContext = createContext();
 
 const initialState = {
@@ -12,14 +15,14 @@ const SocketContextProvider = (props) => {
   const location = useLocation();
   const [state, setState] = useState(initialState);
 
-  const homePage = "http://localhost:3000/";
+  const homePage = frontEndUrl;
 
   useEffect(() => {
     if (homePage === window.location.href) {
       setState({ ...initialState });
       return;
     }
-    const socket = io("http://localhost:8000/");
+    const socket = io(backendUrl);
     setState({ socket });
   }, [location.pathname]);
 
