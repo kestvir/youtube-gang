@@ -30,7 +30,7 @@ const Pagination = ({ pagesQuantity, setCurPage }) => {
   };
 
   return (
-    <Flex justifyContent="center">
+    <Flex my={3} justifyContent="center">
       <Paginator
         onPageChange={handlePageChange}
         pagesQuantity={pagesQuantity - 1}

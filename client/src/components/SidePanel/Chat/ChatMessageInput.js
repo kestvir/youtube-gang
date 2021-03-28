@@ -22,14 +22,8 @@ const ChatMessageInput = ({ message, changeMessage, sendMessage }) => {
     correctSndMsgInputIconColor();
   }, [message, isInputOnFocus]);
 
-  //   useEffect(() => {
-  //     const trimmedMessage = message.trim();
-  //     if (trimmedMessage) setIsMsgInputEmpty(false);
-  //     else setIsMsgInputEmpty(true);
-  //   }, [message]);;
-
   return (
-    <InputGroup>
+    <InputGroup px={4}>
       <Input
         bg="lighterGrey.600"
         _hover={{ background: "lighterGrey.500" }}
@@ -42,11 +36,11 @@ const ChatMessageInput = ({ message, changeMessage, sendMessage }) => {
         onKeyPress={(e) => e.key === "Enter" && sendMessage(e)}
         type="text"
         variant="filled"
-        w="100%"
         placeholder="Send message"
         _placeholder={{ color: "lighterGrey.200" }}
       />
       <InputRightElement
+        pr={6}
         children={
           <Icon
             cursor="pointer"

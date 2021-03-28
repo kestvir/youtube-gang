@@ -35,11 +35,11 @@ const Room = ({ match }) => {
     );
 
   return (
-    <Flex h="100vh" w="100vw">
-      <Box overflow="auto" w="75vw" bg="almostBlack">
+    <Flex id="main-container" h="100vh" w="100vw">
+      <Box id="video-container-box" overflowY="auto" w="75vw" bg="almostBlack">
         <VideoContainer />
       </Box>
-      <Box w="25vw">
+      <Box id="side-panel-box" w="25vw">
         <SidePanel name={selfName} setName={setSelfName} />
       </Box>
     </Flex>

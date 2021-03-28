@@ -1,5 +1,5 @@
 import React from "react";
-import { Tab, Tabs, TabList, TabPanels, TabPanel } from "@chakra-ui/react";
+import { Tab, Tabs, TabList, TabPanels, TabPanel, Box } from "@chakra-ui/react";
 import Chat from "./Chat/Chat";
 import UserList from "./UserList";
 import Options from "../Options/Options";
@@ -16,10 +16,10 @@ const SidePanel = ({ name, setName }) => {
         <Tab _selected={selectedTabStyles}>⚙</Tab>
       </TabList>
       <TabPanels h="94vh">
-        <TabPanel h="100%">
+        <TabPanel px={0} h="100%">
           <Chat />
         </TabPanel>
-        <TabPanel>
+        <TabPanel px={0}>
           <UserList />
         </TabPanel>
         <TabPanel p={0}>

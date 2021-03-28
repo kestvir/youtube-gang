@@ -10,8 +10,14 @@ const Instructions = () => {
   };
 
   return (
-    <Box mb={8} mt={4} position="relative">
-      <Flex py={6} px={14} justifyContent="space-between" alignItems="center">
+    <Box id="app-instructions-box" mb={8} mt={4} position="relative">
+      <Flex
+        id="app-instructions-flex-container"
+        py={6}
+        px={14}
+        justifyContent="space-between"
+        alignItems="center"
+      >
         <Flex flexDirection="column" alignItems="center">
           <Icon color="lightestGrey" w={16} h={16} as={FiSearch} />
           <Heading color="lightestGrey" size="lg" py={4}>

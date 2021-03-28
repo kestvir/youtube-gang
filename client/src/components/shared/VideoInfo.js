@@ -18,7 +18,6 @@ const VideoInfo = ({ video, isParentComponentOptions, isQueue }) => {
 
   const toast = useToast();
 
-
   const shortenStrIfTooLong = (str) => {
     if (str.length <= 78) {
       return str;
@@ -33,7 +32,7 @@ const VideoInfo = ({ video, isParentComponentOptions, isQueue }) => {
 
   const addVideo = (video) => {
     dispatch(addVideoToQueue(video));
-    toast(successMsg("Video added to queue."))
+    toast(successMsg("Video added to queue."));
   };
 
   const deleteVideo = (id) => {
@@ -42,7 +41,11 @@ const VideoInfo = ({ video, isParentComponentOptions, isQueue }) => {
   };
 
   return (
-    <Flex flexDirection="column" px={isParentComponentOptions && 10}>
+    <Flex
+      id="video-info-flex-container"
+      flexDirection="column"
+      px={isParentComponentOptions && 10}
+    >
       <Image
         onClick={() => adjustVidURLAndLoad(video.id)}
         cursor="pointer"

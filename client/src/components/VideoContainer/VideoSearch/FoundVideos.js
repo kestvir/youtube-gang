@@ -15,8 +15,13 @@ const FoundVideos = ({ foundVideos, curPage, itemLimit }) => {
   }, [curPage, itemLimit, foundVideos]);
 
   return (
-    <Box h="60vh" py={6}>
-      <Grid gap={5} templateColumns="repeat(4, 1fr)" spacing={4}>
+    <Box id="found-videos-box" h="60vh" py={6}>
+      <Grid
+        id="found-videos-grid"
+        gap={5}
+        templateColumns="repeat(4, 1fr)"
+        spacing={4}
+      >
         {curItems.map((vidData) => {
           const videoToRender = new Video(
             vidData.id.videoId,

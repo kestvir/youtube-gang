@@ -9,13 +9,15 @@ import OtherUsersChatMessage from "./OtherUsersChatMessage";
 const ChatMessages = ({ messages }) => {
   const { state } = useContext(SocketContext);
   const { socket } = state;
+
   return (
-    <Flex flexDirection="column">
-      <ScrollToBottom>
+    <ScrollToBottom className="scroll-items">
+      <Flex flexDirection="column">
         {messages.map((messageObj, index) => {
           if (messageObj.userId === "admin") {
             return (
               <Text
+                mx={2}
                 key={index}
                 textAlign="center"
                 fontSize="sm"
@@ -42,8 +44,8 @@ const ChatMessages = ({ messages }) => {
             );
           }
         })}
-      </ScrollToBottom>
-    </Flex>
+      </Flex>
+    </ScrollToBottom>
   );
 };
 

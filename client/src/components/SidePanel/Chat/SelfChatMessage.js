@@ -4,7 +4,7 @@ import Avatar from "react-avatar";
 
 const SelfChatMessage = ({ messageObj }) => {
   return (
-    <Flex justifyContent="flex-end" alignItems="center" my={4}>
+    <Flex justifyContent="flex-end" alignItems="center" p={4}>
       <Box background="transparent" maxW="200px">
         <Text color="white">{messageObj.text}</Text>
       </Box>

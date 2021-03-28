@@ -1,3 +1,5 @@
+/*** INPUTS ***/
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -7,6 +9,8 @@ input:-webkit-autofill:active {
 input:-webkit-autofill {
   -webkit-text-fill-color: white !important;
 }
+
+/*** SCROLLBAR ***/
 
 /* width */
 ::-webkit-scrollbar {
@@ -29,13 +33,87 @@ input:-webkit-autofill {
   background: #555;
 }
 
+.scroll-items {
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+}
+
+/*** VIDEO PLAYER ***/
+
 .player-wrapper {
   position: relative;
-  /* padding-top: 56.25%; 720 / 1280 = 0.5625 */
 }
 
 .react-player {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+/*** CONTAINERS ***/
+@media only screen and (max-width: 849px) {
+  body {
+    overflow-x: hidden;
+  }
+  #main-container {
+    flex-direction: column;
+    height: 100%;
+    width: 100vw;
+    overflow-x: hidden;
+  }
+  #video-container-box {
+    height: 100%;
+    width: 100%;
+    overflow-y: initial;
+  }
+
+  #found-videos-box {
+    height: 100%;
+  }
+  #side-panel-box {
+    width: 100%;
+  }
+}
+
+/*** APP INSTRUCTIONS ***/
+@media only screen and (max-width: 1323px) {
+  #app-instructions-box h2 {
+    font-size: 1.5rem;
+  }
+  #app-instructions-box svg {
+    height: 2rem;
+    width: 2rem;
+  }
+}
+
+@media only screen and (max-width: 1091px) {
+  #app-instructions-box h2 {
+    font-size: 1.2rem;
+  }
+  #app-instructions-box svg {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+  #app-instructions-flex-container {
+    padding: 0 2rem;
+  }
+}
+
+@media only screen and (max-width: 1091px) {
+  #app-instructions-flex-container {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 607px) {
+  #video-info-flex-container p {
+    font-size: 0.9rem;
+  }
+}
+
+@media only screen and (max-width: 685px) {
+  #found-videos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

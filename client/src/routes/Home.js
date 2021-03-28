@@ -1,7 +1,6 @@
 import React from "react";
 import { generate as generateRandomUsername } from "canihazusername";
-import { Flex, Heading, Button, Text } from "@chakra-ui/react";
-import { MdBrandingWatermark } from "react-icons/md";
+import { Flex, Heading, Button } from "@chakra-ui/react";
 
 function Home({ history }) {
   function createAndJoinRoom() {
