@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { SocketContext } from "../../store/contexts/SocketContext";
-import { Flex, Image, Text, Icon } from "@chakra-ui/react";
+import { Flex, Image, Text, Icon, useToast } from "@chakra-ui/react";
 import { ImPlus } from "react-icons/im";
 import { MdDelete } from "react-icons/md";
 import { WatchQueueAndHistoryContext } from "../../store/contexts/WatchQueueAndHistorytContext";
@@ -9,12 +9,15 @@ import {
   deleteVideoFromQueue,
   deleteVideoFromHistory,
 } from "../../store/actions/watchQueueAndHistoryActions";
-import { standardVideoURL } from "../shared/constants";
+import { standardVideoURL, successMsg } from "../shared/constants";
 
 const VideoInfo = ({ video, isParentComponentOptions, isQueue }) => {
   const { state } = useContext(SocketContext);
   const { socket } = state;
   const { dispatch } = useContext(WatchQueueAndHistoryContext);
+
+  const toast = useToast();
+
 
   const shortenStrIfTooLong = (str) => {
     if (str.length <= 78) {
@@ -30,6 +33,7 @@ const VideoInfo = ({ video, isParentComponentOptions, isQueue }) => {
 
   const addVideo = (video) => {
     dispatch(addVideoToQueue(video));
+    toast(successMsg("Video added to queue."))
   };
 
   const deleteVideo = (id) => {

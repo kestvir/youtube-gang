@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { SocketContext } from "../../store/contexts/SocketContext";
 import { FiCheck } from "react-icons/fi";
+import { successMsg } from "../shared/constants";
 
 const ChangeUsername = ({ name, setName }) => {
   const [currentUsername, setCurrentUsername] = useState("");
@@ -29,12 +30,7 @@ const ChangeUsername = ({ name, setName }) => {
     e.preventDefault();
     if (currentUsername === name) return;
     socket.emit("change name", name);
-    toast({
-      description: "Username changed successfully",
-      status: "success",
-      duration: 1500,
-      isClosable: true,
-    });
+    toast(successMsg("Username changed successfully."));
     setCurrentUsername(name);
   };
   const changeName = (e) => {

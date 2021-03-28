@@ -10,18 +10,14 @@ import {
   useToast,
 } from "@chakra-ui/react";
 import { FiCopy } from "react-icons/fi";
+import { successMsg } from "../shared/constants";
 
 const CopyRoomLink = () => {
   const toast = useToast();
   const url = window.location.href;
 
   const copyRoomLink = () => {
-    toast({
-      description: "Room link copied!",
-      status: "success",
-      duration: 1500,
-      isClosable: true,
-    });
+    toast(successMsg("Room link copied."));
   };
 
   return (

@@ -10,3 +10,10 @@ export const standardVideoURL = (videoId) =>
   `https://www.youtube.com/watch?v=${videoId}`;
 
 export const selectedTabStyles = { color: "white", bg: "brand.500" };
+
+export const successMsg = (description) => ({
+  description,
+  status: "success",
+  duration: 1500,
+  isClosable: true,
+});
