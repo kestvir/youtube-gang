@@ -8,7 +8,7 @@ let backEndUrl = "http://localhost:8000/";
 const prodFrontEndUrl = "https://youtubegang.netlify.app/";
 const prodBackendUrl = "https://youtubegang.herokuapp.com/";
 
-if (process.env.NETLIFY) {
+if (process.env.MY_ENV === "production") {
   frontEndUrl = prodFrontEndUrl;
   backEndUrl = prodBackendUrl;
 }

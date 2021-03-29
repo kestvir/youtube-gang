@@ -50,7 +50,8 @@ const SearchOrLoadVideosInput = ({ setFoundVideos }) => {
         type="text"
         placeholder="Load or search for a video"
         _placeholder={{ color: "lighterGrey.400" }}
-        _focus={{ boxShadow: "0 0 0 1px white" }}
+        _focus={{ borderColor: "white" }}
+        _hover={{ borderColor: "lightestGrey" }}
         _autofill={{ bg: "transparent" }}
         borderColor="lighterGrey.500"
         color="white"
