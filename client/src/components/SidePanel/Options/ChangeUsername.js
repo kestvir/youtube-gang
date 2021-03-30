@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import {
   Flex,
   InputGroup,
@@ -13,26 +13,27 @@ import { FiCheck } from "react-icons/fi";
 import { successMsg } from "../../../shared/constants";
 
 const ChangeUsername = ({ name, setName }) => {
-  const [currentUsername, setCurrentUsername] = useState("");
   const { state } = useContext(SocketContext);
   const { socket } = state;
   const toast = useToast();
-  const firstRenderRef = useRef(true);
+  const currentUsernameRef = useRef(null);
 
   useEffect(() => {
-    if (firstRenderRef.current && name.trim().length) {
-      setCurrentUsername(name);
-      firstRenderRef.current = false;
-    }
+    if (!name || currentUsernameRef.current) return;
+    currentUsernameRef.current = name;
   }, [name]);
 
   const submitNewUsername = (e) => {
     e.preventDefault();
-    if (currentUsername === name) return;
-    socket.emit("change name", name);
-    toast(successMsg("Username changed successfully."));
-    setCurrentUsername(name);
+    if (!currentUsernameRef.current || currentUsernameRef.current === name) {
+      return;
+    } else {
+      socket.emit("change name", name);
+      toast(successMsg("Username changed successfully."));
+      currentUsernameRef.current = name;
+    }
   };
+
   const changeName = (e) => {
     const userInput = e.target.value.trim();
     if (userInput.length) setName(userInput);
@@ -48,7 +49,7 @@ const ChangeUsername = ({ name, setName }) => {
             required
             _focus={{ outline: "0" }}
             type="text"
-            value={currentUsername}
+            value={name}
             onChange={changeName}
             borderColor="lighterGrey.500"
             color="white"
