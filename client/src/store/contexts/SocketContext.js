@@ -1,15 +1,18 @@
 import React, { createContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import io from "socket.io-client";
+import {
+  prodFrontendUrl,
+  prodBackendUrl,
+  devFrontendUrl,
+  devBackendUrl,
+} from "../../shared/constants";
 
-let frontEndUrl = "http://localhost:3000/";
-let backEndUrl = "http://localhost:8000/";
-
-const prodFrontEndUrl = "https://youtubegang.netlify.app/";
-const prodBackendUrl = "https://youtubegang.herokuapp.com/";
+let frontEndUrl = devFrontendUrl;
+let backEndUrl = devBackendUrl;
 
 if (process.env.REACT_APP_MY_ENV === "production") {
-  frontEndUrl = prodFrontEndUrl;
+  frontEndUrl = prodFrontendUrl;
   backEndUrl = prodBackendUrl;
 }
 
@@ -32,6 +35,7 @@ const SocketContextProvider = (props) => {
     }
     const socket = io(backEndUrl);
     setState({ socket });
+    console.log(socket);
   }, [location.pathname]);
 
   return (

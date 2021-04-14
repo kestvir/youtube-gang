@@ -11,14 +11,19 @@ const Room = ({ match }) => {
   const { socket } = state;
   const [selfName, setSelfName] = useState("");
 
+  const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     if (!socket) return;
     else {
+      setIsLoading(true);
       if (socket.disconnected) socket.connect();
       const randomName = generateRandomUsername();
       const room = match.params.roomID;
       setSelfName(randomName);
-      socket.emit("join", { name: randomName, room });
+      socket.emit("join", { name: randomName, room }, () => {
+        if (room) setIsLoading(false);
+      });
 
       return () => {
         socket.off();
@@ -27,7 +32,7 @@ const Room = ({ match }) => {
     }
   }, [socket]);
 
-  if (!socket)
+  if (!socket && isLoading)
     return (
       <Box w="100%" h="100vh" bg="almostBlack">
         <Progress colorScheme="brand" isIndeterminate />;

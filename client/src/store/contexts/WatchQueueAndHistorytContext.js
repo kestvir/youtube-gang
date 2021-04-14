@@ -1,6 +1,7 @@
 import React, { createContext, useReducer, useEffect } from "react";
 import { watchQueueAndHistoryReducer } from "../reducers/watchQueueAndHistoryReducer";
 import { resetQueueAndHistory } from "../actions/watchQueueAndHistoryActions";
+import { prodFrontendUrl, devFrontendUrl } from "../../shared/constants";
 
 export const WatchQueueAndHistoryContext = createContext();
 
@@ -14,7 +15,12 @@ const WatchQueueAndHistoryContextProvider = (props) => {
     watchQueueAndHistoryReducer,
     initialState
   );
-  const homePage = "http://localhost:3000/";
+
+  let homePage = devFrontendUrl;
+
+  if (process.env.REACT_APP_MY_ENV === "production") {
+    homePage = prodFrontendUrl;
+  }
 
   useEffect(() => {
     if (homePage === window.location.href) {

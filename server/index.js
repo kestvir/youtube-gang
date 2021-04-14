@@ -23,6 +23,8 @@ io.on("connect", (socket) => {
   socket.on("join", ({ name, room }) => {
     user = addUser({ id: socket.id, name, room });
 
+    console.log(user);
+
     socket.join(room);
 
     io.to(room).emit("roomData", {

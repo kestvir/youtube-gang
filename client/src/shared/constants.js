@@ -17,3 +17,9 @@ export const successMsg = (description) => ({
   duration: 1500,
   isClosable: true,
 });
+
+export const devFrontendUrl = "http://localhost:3000/";
+export const devBackendUrl = "http://localhost:8000/";
+
+export const prodFrontendUrl = "https://youtubegang.netlify.app/";
+export const prodBackendUrl = "https://youtubegang.herokuapp.com/";
