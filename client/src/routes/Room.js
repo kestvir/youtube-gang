@@ -13,14 +13,16 @@ const Room = ({ match }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     if (!socket) return;
     else {
-      setIsLoading(true);
       if (socket.disconnected) socket.connect();
       const randomName = generateRandomUsername();
       const room = match.params.roomID;
       setSelfName(randomName);
-      socket.emit("join", { name: randomName, room }, () => {
+      socket.emit("join", { name: randomName, room });
+
+      socket.on("userJoined", () => {
         setIsLoading(false);
       });
 

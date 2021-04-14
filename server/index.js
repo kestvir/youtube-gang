@@ -23,9 +23,9 @@ io.on("connect", (socket) => {
   socket.on("join", ({ name, room }) => {
     user = addUser({ id: socket.id, name, room });
 
-    console.log(user);
-
     socket.join(room);
+
+    socket.emit("userJoined");
 
     io.to(room).emit("roomData", {
       room: room,
@@ -59,7 +59,7 @@ io.on("connect", (socket) => {
     });
   });
 
-  socket.on("change name", (name) => {
+  socket.on("changeName", (name) => {
     const oldUser = getUser(socket.id);
     const oldName = oldUser.name;
 

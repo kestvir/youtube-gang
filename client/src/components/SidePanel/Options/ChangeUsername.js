@@ -28,7 +28,7 @@ const ChangeUsername = ({ name, setName }) => {
     if (!currentUsernameRef.current || currentUsernameRef.current === name) {
       return;
     } else {
-      socket.emit("change name", name);
+      socket.emit("changeName", name);
       toast(successMsg("Username changed successfully."));
       currentUsernameRef.current = name;
     }
