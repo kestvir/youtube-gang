@@ -10,7 +10,7 @@ const Room = ({ match }) => {
   const { socket } = state;
   const [selfName, setSelfName] = useState("");
 
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (!socket) return;
