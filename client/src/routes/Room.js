@@ -31,7 +31,7 @@ const Room = ({ match }) => {
     }
   }, [socket]);
 
-  if (!socket && isLoading)
+  if (!socket || isLoading)
     return (
       <Box w="100%" h="100vh" bg="almostBlack">
         <Progress colorScheme="brand" isIndeterminate />;
