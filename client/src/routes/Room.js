@@ -21,7 +21,7 @@ const Room = ({ match }) => {
       const room = match.params.roomID;
       setSelfName(randomName);
       socket.emit("join", { name: randomName, room }, () => {
-        if (room) setIsLoading(false);
+        setIsLoading(false);
       });
 
       return () => {
