@@ -2,7 +2,6 @@ import React, { useState, useEffect, useContext } from "react";
 import { SocketContext } from "../store/contexts/SocketContext";
 import { generate as generateRandomUsername } from "canihazusername";
 import { Box, Flex, Progress } from "@chakra-ui/react";
-import { Skeleton } from "@chakra-ui/react";
 import SidePanel from "../components/SidePanel/SidePanel";
 import VideoContainer from "../components/VideoContainer/VideoContainer";
 
