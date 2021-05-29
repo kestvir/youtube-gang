@@ -4,6 +4,9 @@ The YoutubeGanng web app lets users chat and watch Youtube videos in real-time.
 
 https://youtubegang.netlify.app/
 
+![youtube gang](https://user-images.githubusercontent.com/25966281/114862144-da9a6800-9df6-11eb-9c18-ae5ef0d50da9.PNG)
+
+
 ## Technologies used
 
 React, Node, Express, Socket.io, Chakra UI, YouTube API.
@@ -19,4 +22,4 @@ React, Node, Express, Socket.io, Chakra UI, YouTube API.
 
 ## Potential Features
 
-- [] Light mode.
+- Light mode.
