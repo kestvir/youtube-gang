@@ -15,7 +15,7 @@ const Instructions = () => {
         id="app-instructions-flex-container"
         py={6}
         px={14}
-        justifyContent="space-between"
+        justifyContent="space-around"
         alignItems="center"
       >
         <Flex flexDirection="column" alignItems="center">
