@@ -1,5 +1,5 @@
 import React from "react";
-import { Tab, Tabs, TabList, TabPanels, TabPanel, Box } from "@chakra-ui/react";
+import { Tab, Tabs, TabList, TabPanels, TabPanel } from "@chakra-ui/react";
 import Chat from "./Chat/Chat";
 import UserList from "./UserList";
 import Options from "./Options/Options";

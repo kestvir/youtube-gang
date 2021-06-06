@@ -5,15 +5,13 @@ import {
   prodFrontendUrl,
   prodBackendUrl,
   devFrontendUrl,
-  devBackendUrl,
 } from "../../shared/constants";
 
 let frontEndUrl = devFrontendUrl;
-let backEndUrl = devBackendUrl;
+let backEndUrl = prodBackendUrl;
 
 if (process.env.REACT_APP_MY_ENV === "production") {
   frontEndUrl = prodFrontendUrl;
-  backEndUrl = prodBackendUrl;
 }
 
 export const SocketContext = createContext();

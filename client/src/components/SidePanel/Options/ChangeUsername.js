@@ -35,9 +35,11 @@ const ChangeUsername = ({ name, setName }) => {
   };
 
   const changeName = (e) => {
-    const userInput = e.target.value.trim();
-    if (userInput.length) setName(userInput);
+    const userInput = e.target.value;
+    if (!userInput.length) return;
+    setName(e.target.value);
   };
+
   return (
     <Flex my={3} flexDirection="column">
       <Text color="lighterGrey.400" textAlign="center">
