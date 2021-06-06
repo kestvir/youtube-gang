@@ -6,19 +6,9 @@ import {
   RESET_QUEUE_AND_HISTORY,
 } from "../actions/actionTypes";
 
-const deleteItem = (arr, id) => {
-  const filteredArr = arr.filter((item) => {
-    if (item.id !== id) {
-      return item;
-    }
-  });
-  return filteredArr;
-};
+const deleteItem = (arr, id) => arr.filter((item) => item.id !== id);
 
-const findItem = (arr, id) => {
-  const findResult = arr.find((item) => item.id === id);
-  return !!findResult;
-};
+const findItem = (arr, id) => arr.find((item) => item.id === id);
 
 export const watchQueueAndHistoryReducer = (state, action) => {
   switch (action.type) {

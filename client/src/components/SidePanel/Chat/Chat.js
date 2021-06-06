@@ -11,10 +11,11 @@ const Chat = () => {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    socket.on("message", (message) => {
-      setMessages((messages) => [...messages, message]);
-    });
-  }, []);
+    if (socket)
+      socket.on("message", (message) => {
+        setMessages((messages) => [...messages, message]);
+      });
+  }, [socket]);
 
   const sendMessage = (e) => {
     e.preventDefault();

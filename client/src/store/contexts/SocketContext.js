@@ -34,7 +34,7 @@ const SocketContextProvider = (props) => {
     const socket = io(backEndUrl);
     setState({ socket });
     console.log(socket);
-  }, [location.pathname]);
+  }, [location.pathname, homePage]);
 
   return (
     <SocketContext.Provider value={{ state }}>

@@ -10,10 +10,11 @@ const UserList = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    socket.on("roomData", ({ users }) => {
-      setUsers(users);
-    });
-  }, []);
+    if (socket)
+      socket.on("roomData", ({ users }) => {
+        setUsers(users);
+      });
+  }, [socket]);
 
   return (
     <ScrollToBottom className="scroll-items">

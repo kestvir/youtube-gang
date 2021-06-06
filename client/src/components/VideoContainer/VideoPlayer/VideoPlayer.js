@@ -27,26 +27,48 @@ const VideoPlayer = () => {
   const [vidURL, setVidURL] = useState("");
   const [playedSecs, setPlayedSecs] = useState(0);
   const [syncData, setSyncData] = useState(null);
-  const [displayVolumeEnableModal, setDisplayVolumeEnableModal] = useState(
-    false
-  );
+  const [displayVolumeEnableModal, setDisplayVolumeEnableModal] =
+    useState(false);
 
   const playerRef = useRef(null);
   const playerWrapperRef = useRef(null);
 
   useEffect(() => {
-    socket.on("load", (sendenderVidURL) => {
-      setVidURL(sendenderVidURL);
-      setDisplayVolumeEnableModal(true);
+    const addToHistory = async () => {
+      try {
+        const res = await fetch(
+          getSingleVideoInfoURL(playerRef.current.props.url)
+        );
+        if (!res.ok) {
+          throw new Error(res.error);
+        }
+        const data = await res.json();
+        const dataObj = data.items[0];
+        const videoData = new Video(
+          dataObj.id.videoId,
+          dataObj.snippet.title,
+          dataObj.snippet.thumbnails.medium.url,
+          dataObj.snippet.channelTitle
+        );
+        dispatch(addVideoToHistory(videoData));
+      } catch (err) {
+        console.error(err);
+      }
+    };
 
-      addToHistory()
-        .then(() => {
-          console.log("Video Added To History!");
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    });
+    if (socket)
+      socket.on("load", (sendenderVidURL) => {
+        setVidURL(sendenderVidURL);
+        setDisplayVolumeEnableModal(true);
+
+        addToHistory()
+          .then(() => {
+            console.log("Video Added To History!");
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+      });
 
     if (playerReady) {
       socket.on("seek", (senderTime) => {
@@ -62,23 +84,24 @@ const VideoPlayer = () => {
         setPlaying(false);
       });
     }
-  }, [playerReady]);
+  }, [playerReady, socket, dispatch]);
 
   useEffect(() => {
-    socket.on("roomData", ({ users }) => {
-      const currentPlayer = playerRef?.current;
+    if (socket)
+      socket.on("roomData", ({ users }) => {
+        const currentPlayer = playerRef?.current;
 
-      if (users.length > 1 && users[0].id === socket.id && playerReady) {
-        const syncUserId = users[users.length - 1].id;
-        socket.emit(
-          "syncVideoOnJoin",
-          syncUserId,
-          currentPlayer.props.url,
-          currentPlayer.getCurrentTime(),
-          currentPlayer.props.playing
-        );
-      }
-    });
+        if (users.length > 1 && users[0].id === socket.id && playerReady) {
+          const syncUserId = users[users.length - 1].id;
+          socket.emit(
+            "syncVideoOnJoin",
+            syncUserId,
+            currentPlayer.props.url,
+            currentPlayer.getCurrentTime(),
+            currentPlayer.props.playing
+          );
+        }
+      });
     socket.on("syncOnJoin", (senderVidURL, senderTime, isSenderPlaying) => {
       const syncDataObj = {
         url: senderVidURL,
@@ -87,7 +110,7 @@ const VideoPlayer = () => {
       };
       setSyncData(syncDataObj);
     });
-  }, [playerReady]);
+  }, [playerReady, socket]);
 
   useEffect(() => {
     if (syncData !== null) {
@@ -134,28 +157,6 @@ const VideoPlayer = () => {
     } else {
       setPlaying(false);
       playerRef.current.seekTo(0);
-    }
-  };
-
-  const addToHistory = async () => {
-    try {
-      const res = await fetch(
-        getSingleVideoInfoURL(playerRef.current.props.url)
-      );
-      if (!res.ok) {
-        throw new Error(res.error);
-      }
-      const data = await res.json();
-      const dataObj = data.items[0];
-      const videoData = new Video(
-        dataObj.id.videoId,
-        dataObj.snippet.title,
-        dataObj.snippet.thumbnails.medium.url,
-        dataObj.snippet.channelTitle
-      );
-      dispatch(addVideoToHistory(videoData));
-    } catch (err) {
-      console.error(err);
     }
   };
 

@@ -26,7 +26,7 @@ const WatchQueueAndHistoryContextProvider = (props) => {
     if (homePage === window.location.href) {
       dispatch(resetQueueAndHistory());
     }
-  }, [window.location.href]);
+  }, [homePage]);
 
   return (
     <WatchQueueAndHistoryContext.Provider value={{ state, dispatch }}>

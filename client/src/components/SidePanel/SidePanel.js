@@ -10,10 +10,26 @@ const SidePanel = ({ name, setName }) => {
   return (
     <Tabs isFitted variant="unstyled" bg="darkGrey">
       <TabList h="6vh">
-        <Tab _selected={selectedTabStyles}>💬</Tab>
-        <Tab _selected={selectedTabStyles}>👤</Tab>
-        <Tab _selected={selectedTabStyles}>👀</Tab>
-        <Tab _selected={selectedTabStyles}>⚙</Tab>
+        <Tab _selected={selectedTabStyles}>
+          <span role="img" aria-label="chatbox emoji">
+            💬
+          </span>
+        </Tab>
+        <Tab _selected={selectedTabStyles}>
+          <span role="img" aria-label="human siluet emoji">
+            👤
+          </span>
+        </Tab>
+        <Tab _selected={selectedTabStyles}>
+          <span role="img" aria-label="eyes emoji">
+            👀
+          </span>
+        </Tab>
+        <Tab _selected={selectedTabStyles}>
+          <span role="img" aria-label="gear emoji">
+            ⚙
+          </span>
+        </Tab>
       </TabList>
       <TabPanels h="94vh">
         <TabPanel px={0} h="100%">

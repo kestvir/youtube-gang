@@ -31,7 +31,7 @@ const Room = ({ match }) => {
         socket.close();
       };
     }
-  }, [socket]);
+  }, [socket, match.params.roomID]);
 
   if (!socket || isLoading)
     return (
