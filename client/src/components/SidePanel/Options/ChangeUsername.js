@@ -26,7 +26,10 @@ const ChangeUsername = ({ name, setName }) => {
   const submitNewUsername = (e) => {
     e.preventDefault();
     const trimmedName = name.trim();
-    if (!currentUsernameRef.current || currentUsernameRef.current === name) {
+    if (
+      !currentUsernameRef.current ||
+      currentUsernameRef.current === trimmedName
+    ) {
       return;
     } else if (!trimmedName) {
       toast(toastMsg("Username cannot be empty.", "error"));
