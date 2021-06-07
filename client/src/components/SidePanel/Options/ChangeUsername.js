@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { SocketContext } from "../../../store/contexts/SocketContext";
 import { FiCheck } from "react-icons/fi";
-import { successMsg } from "../../../shared/constants";
+import { toastMsg } from "../../../shared/constants";
 
 const ChangeUsername = ({ name, setName }) => {
   const { state } = useContext(SocketContext);
@@ -25,18 +25,20 @@ const ChangeUsername = ({ name, setName }) => {
 
   const submitNewUsername = (e) => {
     e.preventDefault();
+    const trimmedName = name.trim();
     if (!currentUsernameRef.current || currentUsernameRef.current === name) {
       return;
+    } else if (!trimmedName) {
+      toast(toastMsg("Username cannot be empty.", "error"));
+      return setName(currentUsernameRef.current);
     } else {
-      socket.emit("changeName", name);
-      toast(successMsg("Username changed successfully."));
-      currentUsernameRef.current = name;
+      socket.emit("changeName", trimmedName);
+      toast(toastMsg("Username changed successfully.", "success"));
+      currentUsernameRef.current = trimmedName;
     }
   };
 
   const changeName = (e) => {
-    const userInput = e.target.value;
-    if (!userInput.length) return;
     setName(e.target.value);
   };
 

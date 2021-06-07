@@ -9,7 +9,7 @@ import {
   deleteVideoFromQueue,
   deleteVideoFromHistory,
 } from "../store/actions/watchQueueAndHistoryActions";
-import { standardVideoURL, successMsg } from "./constants";
+import { standardVideoURL, toastMsg } from "./constants";
 
 const VideoInfo = ({ video, isParentComponentOptions, isQueue }) => {
   const { state } = useContext(SocketContext);
@@ -32,7 +32,7 @@ const VideoInfo = ({ video, isParentComponentOptions, isQueue }) => {
 
   const addVideo = (video) => {
     dispatch(addVideoToQueue(video));
-    toast(successMsg("Video added to queue."));
+    toast(toastMsg("Video added to queue.", "success"));
   };
 
   const deleteVideo = (id) => {

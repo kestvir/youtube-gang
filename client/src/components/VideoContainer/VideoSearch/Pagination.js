@@ -47,6 +47,7 @@ const Pagination = ({ pagesQuantity, setCurPage }) => {
         <PageGroup>
           {generatePages(pagesQuantity)?.map((page) => (
             <Page
+              cursor="pointer"
               key={`paginator_page_${page}`}
               page={page}
               normalStyles={normalStyles}

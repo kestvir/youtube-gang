@@ -11,9 +11,9 @@ export const standardVideoURL = (videoId) =>
 
 export const selectedTabStyles = { color: "white", bg: "brand.500" };
 
-export const successMsg = (description) => ({
+export const toastMsg = (description, status) => ({
   description,
-  status: "success",
+  status,
   duration: 1500,
   isClosable: true,
 });
