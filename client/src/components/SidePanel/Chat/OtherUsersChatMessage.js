@@ -9,7 +9,13 @@ const OtherUsersChatMessage = ({ messageObj }) => {
       <Text fontWeight="600" fontSize="sm" mx={2.5} color="lighterGrey.200">
         {messageObj.name}
       </Text>
-      <Box background="transparent" maxW="200px">
+      <Box
+        background="almostBlack"
+        paddingX="10px"
+        paddingY="5px"
+        borderRadius="25px"
+        maxW="200px"
+      >
         <Text color="white">{messageObj.text}</Text>
       </Box>
     </Flex>
