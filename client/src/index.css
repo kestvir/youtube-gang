@@ -11,24 +11,19 @@ input:-webkit-autofill {
 }
 
 /*** SCROLLBAR ***/
-
-/* width */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
   transition: all 0.3s;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
@@ -40,7 +35,6 @@ input:-webkit-autofill {
 }
 
 /*** VIDEO PLAYER ***/
-
 .player-wrapper {
   position: relative;
   padding-top: 56.25%;
@@ -57,12 +51,14 @@ input:-webkit-autofill {
   body {
     overflow-x: hidden;
   }
+
   #main-container {
     flex-direction: column;
     height: 100%;
     width: 100vw;
     overflow-x: hidden;
   }
+
   #video-container-box {
     height: 100%;
     width: 100%;
@@ -72,6 +68,7 @@ input:-webkit-autofill {
   #found-videos-box {
     height: 100%;
   }
+
   #side-panel-box {
     width: 100%;
   }
@@ -82,6 +79,7 @@ input:-webkit-autofill {
   #app-instructions-box h2 {
     font-size: 1.5rem;
   }
+
   #app-instructions-box svg {
     height: 2rem;
     width: 2rem;
@@ -92,10 +90,12 @@ input:-webkit-autofill {
   #app-instructions-box h2 {
     font-size: 1.2rem;
   }
+
   #app-instructions-box svg {
     height: 1.5rem;
     width: 1.5rem;
   }
+
   #app-instructions-flex-container {
     padding: 0 2rem;
   }
