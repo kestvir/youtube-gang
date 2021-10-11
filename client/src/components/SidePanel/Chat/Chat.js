@@ -19,6 +19,7 @@ const Chat = () => {
 
   const sendMessage = (e) => {
     e.preventDefault();
+
     if (message.trim()) {
       socket.emit("sendMessage", message);
       setMessage("");
