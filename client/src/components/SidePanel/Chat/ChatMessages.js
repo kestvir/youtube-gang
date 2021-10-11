@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Flex, Text, Box } from "@chakra-ui/react";
+import { Flex, Text } from "@chakra-ui/react";
 import { SocketContext } from "../../../store/contexts/SocketContext";
 
 import ScrollToBottom from "react-scroll-to-bottom";
