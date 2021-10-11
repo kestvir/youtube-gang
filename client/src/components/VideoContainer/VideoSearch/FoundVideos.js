@@ -11,6 +11,7 @@ const FoundVideos = ({ foundVideos, curPage, itemLimit }) => {
     const getList = (itemLimit) => {
       setCurItems(foundVideos.slice(offset, offset + itemLimit));
     };
+
     getList(itemLimit);
   }, [curPage, itemLimit, foundVideos]);
 
@@ -29,6 +30,7 @@ const FoundVideos = ({ foundVideos, curPage, itemLimit }) => {
             vidData.snippet.thumbnails.medium.url,
             vidData.snippet.channelTitle
           );
+
           return (
             <GridItem key={vidData.id.videoId}>
               <VideoInfo
