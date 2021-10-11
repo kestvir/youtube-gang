@@ -108,6 +108,7 @@ const VideoPlayer = () => {
         time: senderTime,
         isPlaying: isSenderPlaying,
       };
+
       setSyncData(syncDataObj);
     });
   }, [playerReady, socket]);
@@ -122,6 +123,7 @@ const VideoPlayer = () => {
   useEffect(() => {
     if (vidURL.length && playerReady && syncData) {
       playerRef.current.seekTo(syncData.time);
+
       if (syncData.isPlaying) setPlaying(true);
     }
   }, [playerReady, vidURL, syncData]);
@@ -129,9 +131,11 @@ const VideoPlayer = () => {
   const handleProgress = (state) => {
     const currentPlayedSecs = state.playedSeconds;
     const timeDif = currentPlayedSecs - playedSecs;
+
     if (timeDif >= 1.1 || timeDif < -1.1) {
       socket.emit("seekVideo", currentPlayedSecs);
     }
+
     setPlayedSecs(currentPlayedSecs);
   };
 
@@ -152,6 +156,7 @@ const VideoPlayer = () => {
   const handleEnded = () => {
     if (queue.length) {
       const videoIdToPlay = queue[0].id;
+
       socket.emit("loadVideo", standardVideoURL(videoIdToPlay));
       dispatch(deleteVideoFromQueue(videoIdToPlay));
     } else {
