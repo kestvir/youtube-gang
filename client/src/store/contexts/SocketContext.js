@@ -29,11 +29,12 @@ const SocketContextProvider = (props) => {
   useEffect(() => {
     if (homePage === window.location.href) {
       setState({ ...initialState });
+
       return;
     }
     const socket = io(backEndUrl);
+
     setState({ socket });
-    console.log(socket);
   }, [location.pathname, homePage]);
 
   return (
