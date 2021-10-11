@@ -7,9 +7,7 @@ const QueueOrHistory = ({ isQueue }) => {
   const { state } = useContext(WatchQueueAndHistoryContext);
   const { queue, history } = state;
 
-  let arrToMap = [];
-
-  isQueue ? (arrToMap = queue) : (arrToMap = history);
+  const arrToMap = isQueue ? queue : history;
 
   return (
     <Flex flexDirection="column">
