@@ -28,11 +28,11 @@ const CopyRoomLink = () => {
       <InputGroup w="100%">
         <Input
           type="text"
-          _focus={{ outline: "0" }}
           value={window.location.href}
           readOnly
           borderColor="lighterGrey.500"
           color="white"
+          _focus={{ outline: "0" }}
         />
         <InputRightElement
           children={

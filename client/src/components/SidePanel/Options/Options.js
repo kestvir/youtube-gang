@@ -6,6 +6,7 @@ import CopyRoomLink from "./CopyRoomLink";
 
 const Options = ({ name, setName }) => {
   const history = useHistory();
+
   return (
     <Flex flexDirection="column">
       <ChangeUsername name={name} setName={setName} />

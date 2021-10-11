@@ -25,7 +25,9 @@ const ChangeUsername = ({ name, setName }) => {
 
   const submitNewUsername = (e) => {
     e.preventDefault();
+
     const trimmedName = name.trim();
+
     if (
       !currentUsernameRef.current ||
       currentUsernameRef.current === trimmedName
@@ -54,12 +56,12 @@ const ChangeUsername = ({ name, setName }) => {
         <InputGroup w="100%">
           <Input
             required
-            _focus={{ outline: "0" }}
             type="text"
             value={name}
             onChange={changeName}
             borderColor="lighterGrey.500"
             color="white"
+            _focus={{ outline: "0" }}
           />
           <InputRightElement
             children={
