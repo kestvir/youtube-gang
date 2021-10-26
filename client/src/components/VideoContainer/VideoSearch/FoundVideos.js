@@ -4,12 +4,12 @@ import VideoInfo from "../../../shared/VideoInfo";
 import Video from "../../../models/Video";
 
 const FoundVideos = ({ foundVideos, curPage, itemLimit }) => {
-  const [curItems, setCurItems] = useState([]);
+  const [currItems, setCurrItems] = useState([]);
 
   useEffect(() => {
     const offset = curPage * itemLimit;
     const getList = (itemLimit) => {
-      setCurItems(foundVideos.slice(offset, offset + itemLimit));
+      setCurrItems(foundVideos.slice(offset, offset + itemLimit));
     };
 
     getList(itemLimit);
@@ -23,7 +23,7 @@ const FoundVideos = ({ foundVideos, curPage, itemLimit }) => {
         templateColumns="repeat(4, 1fr)"
         spacing={4}
       >
-        {curItems.map((vidData) => {
+        {currItems.map((vidData) => {
           const videoToRender = new Video(
             vidData.id.videoId,
             vidData.snippet.title,
