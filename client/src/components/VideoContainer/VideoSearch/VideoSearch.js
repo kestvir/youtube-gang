@@ -7,7 +7,7 @@ import Instructions from "../Instructions/Instructions";
 
 const VideoSearch = () => {
   const [foundVideos, setFoundVideos] = useState([]);
-  const [curPage, setCurPage] = useState(0);
+  const [currPage, setCurrPage] = useState(0);
 
   const itemLimit = 8;
   const pagesQuantity = Math.ceil(foundVideos.length / itemLimit);
@@ -19,13 +19,13 @@ const VideoSearch = () => {
         <>
           <FoundVideos
             foundVideos={foundVideos}
-            curPage={curPage}
+            curPage={currPage}
             itemLimit={itemLimit}
           />
           <Pagination
             foundVideos={foundVideos}
             pagesQuantity={pagesQuantity}
-            setCurPage={setCurPage}
+            setCurPage={setCurrPage}
           />
         </>
       ) : (
